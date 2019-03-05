@@ -5,6 +5,7 @@
 \alias{hyndman}
 \alias{twentyseconds}
 \alias{awesomecv}
+\alias{awesomecover}
 \alias{moderncv}
 \title{Output formats for CVs}
 \usage{
@@ -13,6 +14,8 @@ hyndman(...)
 twentyseconds(...)
 
 awesomecv(...)
+
+awesomecover(...)
 
 moderncv(..., theme = c("casual", "classic", "oldstyle", "banking",
   "fancy"))

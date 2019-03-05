@@ -45,6 +45,17 @@ awesomecv <- function(...) {
 }
 
 #' @rdname cv_formats
+#' @export
+awesomecover <- function(...) {
+  template <- system.file("rmarkdown", "templates", "awesomecover",
+    "resources", "awesome-cover.tex",
+    package = "vitae"
+  )
+  copy_supporting_files("awesomecv")
+  cv_document(..., template = template, citation_package = "biblatex", latex_engine = "xelatex")
+}
+
+#' @rdname cv_formats
 #'
 #' @param theme The theme for the vitae template.
 #'

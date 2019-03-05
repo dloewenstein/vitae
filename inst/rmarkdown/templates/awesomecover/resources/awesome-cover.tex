@@ -1,0 +1,192 @@
+%!TEX TS-program = xelatex
+%!TEX encoding = UTF-8 Unicode
+% Awesome CV LaTeX Template for Cover Letter
+%
+% This template has been downloaded from:
+% https://github.com/posquit0/Awesome-CV
+%
+% Authors:
+% Claud D. Park <posquit0.bj@gmail.com>
+% Lars Richter <mail@ayeks.de>
+%
+% Template license:
+% CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/)
+%
+
+
+%-------------------------------------------------------------------------------
+% CONFIGURATIONS
+%-------------------------------------------------------------------------------
+% A4 paper size by default, use 'letterpaper' for US letter
+\documentclass[$if(fontsize)$$fontsize$$else$10pt$endif$,$if(lang)$$babel-lang$,$endif$$if(papersize)$$papersize$$else$a4paper$endif$,$for(classoption)$$classoption$$sep$,$endfor$]{awesomecover}
+
+% Configure page margins with geometry
+\geometry{left=1.4cm, top=.8cm, right=1.4cm, bottom=1.8cm, footskip=.5cm}
+
+% Specify the location of the included fonts
+\fontdir[fonts/]
+
+% Color for highlights
+% Awesome Colors: awesome-emerald, awesome-skyblue, awesome-red, awesome-pink, awesome-orange
+%                 awesome-nephritis, awesome-concrete, awesome-darknight
+$if(headcolor)$
+\definecolor{awesome}{HTML}{$headcolor$}
+$else$
+\colorlet{awesome}{awesome-red}
+$endif$
+
+% Colors for text
+% Uncomment if you would like to specify your own color
+% \definecolor{darktext}{HTML}{414141}
+% \definecolor{text}{HTML}{333333}
+% \definecolor{graytext}{HTML}{5D5D5D}
+% \definecolor{lighttext}{HTML}{999999}
+
+% Set false if you don't want to highlight section with awesome color
+$if(color_highlight)$
+\setbool{acvSectionColorHighlight}{$color_highlight$}
+$else$
+\setbool{acvSectionColorHighlight}{true}
+$endif$
+
+% If you would like to change the social information separator from a pipe (|) to something else
+\renewcommand{\acvHeaderSocialSep}{\quad\textbar\quad}
+
+
+%-------------------------------------------------------------------------------
+%	PERSONAL INFORMATION
+%	Comment any of the lines below if they are not required
+%-------------------------------------------------------------------------------
+% Available options: circle|rectangle,edge/noedge,left/right
+$if(profilepic)$
+\photo{$profilepic$}
+$endif$
+\name{$name$}{}
+$if(position)$
+\position{$position$}
+$endif$
+$if(address)$
+\address{$address$}
+$endif$
+
+$if(phone)$
+\mobile{$phone$}
+$endif$
+$if(email)$
+\email{$email$}
+$endif$
+$if(www)$
+\homepage{$www$}
+$endif$
+$if(github)$
+\github{$github$}
+$endif$
+$if(linkedin)$
+\linkedin{$linkedin$}
+$endif$
+$if(twitter)$
+\twitter{$twitter$}
+$endif$
+
+$if(use_quote)$
+\quote{$use_quote$}
+$endif$
+
+
+%-------------------------------------------------------------------------------
+%	LETTER INFORMATION
+%	All of the below lines must be filled out
+%-------------------------------------------------------------------------------
+% The company being applied to
+$if(letter_recipient)$
+\recipient
+  {$letter_recipient$}
+  $if(letter_recipient_adress)$
+  {$letter_recipient_adress$}
+  $endif$
+ $endif$
+% The date on the letter, default is the date of compilation
+$if(date)$
+\letterdate{$date$}
+$endif$
+% The title of the letter
+$if(letter_title)$
+\lettertitle{$letter_title$}
+$endif$
+% How the letter is opened
+$if(letter_opening)$
+\letteropening{$letter_opening$}
+$endif$
+% How the letter is closed
+$if(letter_closing)$
+\letterclosing{$letter_closing$}
+$endif$
+% Any enclosures with the letter
+$if(letter_enclosure)$
+\letterenclosure[Attached]{$letter_enclosure$}
+$endif$
+
+
+%-------------------------------------------------------------------------------
+
+$if(highlighting-macros)$
+$highlighting-macros$
+$endif$
+
+$for(header-includes)$
+$header-includes$
+$endfor$
+
+\begin{document}
+
+% Print the header with above personal informations
+% Give optional argument to change alignment(C: center, L: left, R: right)
+$if(header_align)$
+\makecvheader[$header_align$]
+$else$
+\makecvheader[R]
+$endif$
+
+% Print the footer with 3 arguments(<left>, <center>, <right>)
+% Leave any of these blank if they are not needed
+$if(date)$
+\makecvfooter
+  {$date$}
+  {$name$~~~·~~~Cover Letter}
+  {}
+$else$
+\makecvfooter
+  {}
+  {$name$~~~·~~~Cover Letter}
+  {}
+$endif$
+
+% Print the title with above letter informations
+\makelettertitle
+
+%-------------------------------------------------------------------------------
+%	LETTER CONTENT
+%-------------------------------------------------------------------------------
+\begin{cvletter}
+
+$if(linestretch)$
+\setstretch{$linestretch$}
+$endif$
+
+$for(include-before)$
+$include-before$
+$endfor$
+
+$body$
+
+$for(include-after)$
+$include-after$
+$endfor$
+\end{cvletter}
+
+
+%-------------------------------------------------------------------------------
+% Print the signature and enclosures with above letter informations
+\makeletterclosing
+
+\end{document}

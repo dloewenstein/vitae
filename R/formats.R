@@ -51,7 +51,7 @@ awesomecover <- function(...) {
     "resources", "awesome-cover.tex",
     package = "vitae"
   )
-  copy_supporting_files("awesomecv")
+  copy_supporting_files("awesomecover")
   cv_document(..., template = template, citation_package = "biblatex", latex_engine = "xelatex")
 }
 
